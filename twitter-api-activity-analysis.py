@@ -19,7 +19,10 @@ api = twitter.Api(consumer_key=CONSUMER_KEY,
 
 if __name__ == '__main__':
     userSuggestCategories = api.GetUserSuggestionCategories()
-    userSuggests = []
-    for cat in userSuggestCategories:
-        userSuggests.append(api.GetUserSuggestion(cat))
+    userSuggests = api.GetUserSuggestion(userSuggestCategories[1])
+    # for cat in userSuggestCategories:
+    #     if((cat.name != "Sports") & (cat.name != "Fashion")):
+    #         userSuggests.append(api.GetUserSuggestion(cat))
+    #         print(cat.name)
+
     print([user.name for user in userSuggests])
